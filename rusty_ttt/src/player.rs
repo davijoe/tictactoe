@@ -31,7 +31,7 @@ impl Player {
         loop {
             println!("Choose whether you want to b \"X\" or \"O\"");
             let mut choice = String::new();
-            io::stdin()
+            stdin()
                 .read_line(&mut choice)
                 .expect("Failed to read your choice");
 
