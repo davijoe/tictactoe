@@ -1,8 +1,7 @@
+use stdin::io::stdin;
+
 enum GamePieces {
     X,
     O,
 }
 
-struct Player {
-    game_pieces: GamePieces,
-}
