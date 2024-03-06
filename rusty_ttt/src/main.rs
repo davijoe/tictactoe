@@ -1,20 +1,20 @@
-mod player;
-
 use std::io::stdin;
 
+mod board;
 
-fn what_is_your_name() -> String {
-    println!("Enter your name:");
-    let mut your_name = String::new();
-    stdin()
-        .read_line(&mut your_name)
-        // "Unwraps" a result object and terminates programe
-        .expect("Failed to read your name");
-    your_name
-}
+mod player;
+use player::Player;
+
 
 
 fn main() {
     let name = what_is_your_name();
-    println!(" Welcome {}", name);
+    let game_piece = Player::choose_game_piece();
+    let player = Player::new(name, game_piece);
+
+    println!("Welcome, {}! You will be playing as {:?}", player.name, player.game_piece); 
+
+    // Display the board
+    let board = vec![vec![' '; 3]; 3];
+    display_board(&board);
 }
